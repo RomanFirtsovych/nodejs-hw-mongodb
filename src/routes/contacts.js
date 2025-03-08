@@ -1,9 +1,9 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import Contact from '../models/Contact.js';
 
 const router = express.Router();
 
+// Отримати всі контакти
 router.get('/', async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -17,12 +17,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Отримати контакт за ID
 router.get('/:id', async (req, res) => {
   try {
-    if (!mongoose.isValidObjectId(req.params.id)) {
-      return res.status(400).json({ message: 'Invalid contact ID format' });
-    }
-
     const contact = await Contact.findById(req.params.id);
     if (!contact) {
       return res.status(404).json({ message: 'Contact not found' });
