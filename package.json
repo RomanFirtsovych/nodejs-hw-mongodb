@@ -12,7 +12,7 @@
     "mongoose": "^7.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "pino-http": "^8.8.1"
+    "pino-http": "^10.4.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
